@@ -5,3 +5,60 @@
     padding-top: 1px;
     padding-bottom: 1px;
 }
+
+.texto-inicio h1 {
+    color: #70418b;
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 35px;
+    margin-top: 50px;
+}
+
+.secao1{
+    background-color: #eaf5ef;
+    padding: 80px 0;
+}
+
+.texto-inicio p {
+    color: #222;
+    font-size: 24px;
+    line-height: 1.5;
+}
+
+@media (max-width: 991px) {
+    .imagem-inicio {
+        transform: none;
+    }
+}
+/* IMAGEM */
+.imagem-inicio img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+/* RESPONSIVIDADE */
+@media (max-width: 991px) {
+    .texto-inicio {
+        text-align: center;
+        margin-bottom: 35px;
+    }
+    .texto-inicio h1 {
+        font-size: 38px;
+    }
+    .texto-inicio p {
+        font-size: 20px;
+    }
+    .imagem-inicio {
+        text-align: center;
+    }
+}
+@media (max-width: 576px) {
+    .texto-inicio h1 {
+        font-size: 30px;
+    }
+    .texto-inicio p {
+        font-size: 17px;
+    }
+}
+
+
