@@ -1,0 +1,266 @@
+/* ===== GERAL ===== */
+* {
+    box-sizing: border-box;
+}
+
+body.A {
+    background-color: #f6f3f9;
+    font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    color: #2b2b33;
+    margin: 0;
+    min-height: 100vh;       /* rodapé sempre no final da tela */
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== ANIMAÇÃO AO ABRIR A PÁGINA ===== */
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(15px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.logo {
+    display: block;
+    margin: 20px auto 0;
+    height: 200px;
+    max-width: 100%;
+    animation: aparecer 1s ease both;
+}
+
+/* ===== CAIXA DO FORMULÁRIO ===== */
+.geral {
+    background-color: #ffffff;
+    width: calc(100% - 32px);
+    max-width: 520px;
+    margin: 20px auto 48px;
+    padding: clamp(24px, 5vw, 40px);
+    border: 1px solid #e8e3ee;
+
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(60, 30, 90, 0.07);
+    animation: aparecer 1.2s ease 0.2s both;
+}
+
+.geral h1 {
+    color: #2b2b33;
+    text-align: center;
+    font-size: clamp(24px, 5vw, 30px);
+    font-weight: 600;
+    margin: 0 0 6px;
+}
+
+/* ===== CAMPOS ===== */
+label {
+    display: block;
+    color: #3d3d47;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 14px;
+    margin-bottom: 6px;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 15px;
+    font-family: inherit;
+    color: #2b2b33;
+    background-color: #ffffff;
+    border: 1px solid #d8d4de;
+    border-radius: 8px;
+    transition: border-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 120px;
+    line-height: 1.5;
+}
+
+::placeholder {
+    color: #a3a0aa;
+}
+
+/* Ao passar o mouse */
+input:hover,
+textarea:hover,
+select:hover {
+    border-color: #b8b2c0;
+}
+
+/* Ao clicar no campo */
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: #70418b;
+    box-shadow: 0 0 0 3px rgba(112, 65, 139, 0.12);
+}
+
+/* Seta própria do campo de seleção */
+select {
+    appearance: none;
+    cursor: pointer;
+    padding-right: 40px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%236b6675' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+}
+
+/* ===== ERRO E SUCESSO ===== */
+
+/* Campo com erro */
+.campo-erro {
+    border-color: #c8453f;
+}
+
+.campo-erro:focus {
+    border-color: #c8453f;
+    box-shadow: 0 0 0 3px rgba(200, 69, 63, 0.12);
+}
+
+/* Mensagem de erro (reserva o espaço para a tela não "pular") */
+.erro {
+    display: block;
+    color: #c8453f;
+    font-size: 13px;
+    min-height: 18px;
+    margin-top: 4px;
+}
+
+/* Mensagem de sucesso: a caixa só aparece quando tem texto */
+#mensagemSucesso {
+    margin: 8px 0 0;
+    font-size: 14px;
+    text-align: center;
+}
+
+#mensagemSucesso:not(:empty) {
+    color: #1f6a43;
+    background-color: #eef7f2;
+    border: 1px solid #bfe0cd;
+    border-radius: 8px;
+    padding: 12px 14px;
+    animation: aparecer 0.8s ease both;
+}
+
+/* ===== BOTÕES ===== */
+.botoes {
+    margin-top: 22px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+button,
+.voltar {
+    padding: 13px 20px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: inherit;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* Enviar: botão principal, ocupa a linha toda */
+button[type="submit"] {
+    flex: 1 1 100%;
+    background-color: #70418b;
+    color: #ffffff;
+}
+
+button[type="submit"]:hover {
+    background-color: #5d3375;
+    box-shadow: 0 6px 14px rgba(112, 65, 139, 0.25);
+}
+
+/* Limpar e Voltar: botões secundários, lado a lado */
+button[type="reset"],
+.voltar {
+    flex: 1 1 calc(50% - 5px);
+    background-color: #ffffff;
+    color: #5b5566;
+    border-color: #d8d4de;
+}
+
+button[type="reset"]:hover,
+.voltar:hover {
+    background-color: #f6f3f9;
+    border-color: #b8b2c0;
+    color: #2b2b33;
+}
+
+/* Foco pelo teclado (tecla Tab) */
+button:focus-visible,
+.voltar:focus-visible {
+    outline: 3px solid rgba(112, 65, 139, 0.3);
+    outline-offset: 2px;
+}
+
+/* ===== RODAPÉ ===== */
+.rodape,
+.footer {
+    margin-top: auto;        /* empurra o rodapé para o final da página */
+    background-color: #2f2438;
+    color: #d9d3df;
+    text-align: center;
+    font-size: 14px;
+    padding: 24px 15px;
+}
+
+.rodape p,
+.footer p {
+    margin: 4px 0;
+}
+
+.rodape-nome {
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.rodape-links {
+    margin: 14px 0;
+}
+
+.rodape-links a {
+    display: inline-block;
+    color: #d9d3df;
+    text-decoration: none;
+    margin: 4px 12px;
+    transition: color 0.5s ease;
+}
+
+.rodape-links a:hover {
+    color: #ffffff;
+}
+
+.rodape-copy {
+    font-size: 13px;
+    color: #a79eb0;
+    border-top: 1px solid #443a4d;
+    padding-top: 14px;
+    margin-top: 14px;
+}
+
+/* ===== CELULAR ===== */
+@media (max-width: 480px) {
+    button[type="reset"],
+    .voltar {
+        flex: 1 1 100%;
+    }
+}
+
+/* ===== ACESSIBILIDADE ===== */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}

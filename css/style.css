@@ -1,112 +1,400 @@
-.logo-navbar {
-    height: 150px;
-}
-.navbar {
-    padding-top: 1px;
-    padding-bottom: 1px;
+/* ========== GERAL ========== */
+
+html {
+    scroll-behavior: smooth;   /* rolagem suave ao clicar no menu */
 }
 
-.secao1{
+body {
+    overflow-x: hidden;        /* evita barra de rolagem lateral no celular */
+}
+
+/* Faz o título da seção não ficar escondido atrás do menu fixo */
+section {
+    scroll-margin-top: 90px;
+}
+
+/* ========== ANIMAÇÃO DO INÍCIO (ao carregar a página) ========== */
+
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(25px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.texto-inicio,
+.secao1 img {
+    animation: aparecer 1.4s ease both;
+}
+
+/* ========== EFEITO AO ROLAR A PÁGINA ========== */
+/* O JavaScript (animacao.js) coloca essas classes nos elementos */
+
+.surgir {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+/* Quando o elemento aparece na tela */
+.surgir.visivel {
+    opacity: 1;
+    transform: none;
+}
+
+/* ========== MENU ========== */
+
+.logo-navbar {
+    height: 70px;
+}
+
+/* Links: só mudam de cor suavemente (sem sublinhado) */
+.navbar .nav-link,
+.navbar .nav-link.active {
+    color: #70418b;
+    font-weight: bold;
+    transition: color 0.6s ease;
+}
+
+.navbar .nav-link:hover {
+    color: #58ac84;
+}
+
+/* Menu aberto no celular: links centralizados e com espaço */
+@media (max-width: 991px) {
+    .navbar-nav {
+        text-align: center;
+        padding: 10px 0 15px;
+    }
+
+    .navbar .nav-link {
+        padding: 10px 0;
+    }
+}
+
+/* ========== SEÇÃO 1 - INÍCIO ========== */
+
+.secao1 {
     background-color: #f1eaf5;
-    padding: 80px 0;
 }
 
 .texto-inicio h1 {
     color: #70418b;
-    font-size: 48px;
+    font-size: clamp(28px, 5vw, 48px);   /* cresce junto com a tela */
     font-weight: bold;
-    margin-bottom: 35px;
-    margin-top: 50px;
+    margin-bottom: 20px;
 }
 
 .texto-inicio p {
     color: #222;
-    font-size: 24px;
+    font-size: clamp(17px, 2.2vw, 24px);
     line-height: 1.5;
 }
 
-@media (max-width: 991px) {
-    .imagem-inicio {
-        transform: none;
-    }
-}
-/* IMAGEM */
-.imagem-inicio img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-/* RESPONSIVIDADE */
-@media (max-width: 991px) {
-    .texto-inicio {
-        text-align: center;
-        margin-bottom: 35px;
-    }
-    .texto-inicio h1 {
-        font-size: 38px;
-    }
-    .texto-inicio p {
-        font-size: 20px;
-    }
-    .imagem-inicio {
-        text-align: center;
-    }
-}
-@media (max-width: 576px) {
-    .texto-inicio h1 {
-        font-size: 30px;
-    }
-    .texto-inicio p {
-        font-size: 17px;
-    }
-}
+/* ========== SEÇÃO 2 - SOBRE ========== */
 
 .secao2 {
-    background-color:#eaf5ef;
-    padding: 80px 0;
+    background-color: #eaf5ef;
 }
 
-.imagem-sobre img {
-    width: 350px;
+.imagem-sobre {
+    width: 100%;
+    max-width: 320px;
     border-radius: 20%;
     border: 6px solid #58ac84;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
+    transition: transform 0.8s ease, box-shadow 0.8s ease;
+}
+
+.imagem-sobre:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .texto-sobre h1 {
-    pad;
     color: #58ac84;
-    font-size: 50px;
+    font-size: clamp(34px, 5vw, 50px);
     font-weight: bold;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .texto-sobre p {
     color: #222;
-    font-size: 20px;
+    font-size: clamp(17px, 2vw, 20px);
     line-height: 1.6;
 }
 
-/* Responsividade */
-@media (max-width: 991px) {
-    .imagem-sobre {
-        width: 100%;
-        margin-bottom: 30px;
-         text-align: center;
-         transform: none;
+/* ========== SEÇÃO 3 - SERVIÇOS ========== */
+
+.servicos {
+    background-color: #f1eaf5;
+}
+
+.servicos h1 {
+    color: #70418b;
+    font-size: clamp(32px, 5vw, 46px);
+    font-weight: bold;
+}
+
+.servicos p {
+    color: #555;
+    font-size: clamp(16px, 2vw, 18px);
+}
+
+/* Card de cada serviço */
+.servico-card {
+    background-color: #70418b;
+    border-radius: 25px;
+    overflow: hidden;
+    margin: 0 0 55px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
+    transition: box-shadow 0.8s ease;
+}
+
+.servico-card:hover {
+    box-shadow: 0 8px 20px rgba(112, 65, 139, 0.25);
+}
+
+.imagem-servico {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    transition: transform 1.2s ease;
+}
+
+/* Zoom bem leve na imagem */
+.servico-card:hover .imagem-servico {
+    transform: scale(1.03);
+}
+
+.conteudo-servico {
+    padding: 25px 20px;
+    color: #fff;
+    text-align: center;
+}
+
+.conteudo-servico h3 {
+    font-size: clamp(20px, 3vw, 30px);
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.conteudo-servico p {
+    color: #fff;
+    font-size: clamp(16px, 2vw, 20px);
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* Setas do carrossel (no celular ficam sobre a imagem) */
+#carouselServicos .carousel-control-prev,
+#carouselServicos .carousel-control-next {
+    width: 38px;
+    height: 38px;
+    background-color: #70418b;
+    border-radius: 50%;
+    top: 90px;
+    opacity: 1;
+    transition: background-color 0.6s ease;
+}
+
+#carouselServicos .carousel-control-prev { left: 8px; }
+#carouselServicos .carousel-control-next { right: 8px; }
+
+#carouselServicos .carousel-control-prev:hover,
+#carouselServicos .carousel-control-next:hover {
+    background-color: #58ac84;
+}
+
+/* Indicadores (bolinhas) */
+#carouselServicos .carousel-indicators {
+    bottom: 0;
+}
+
+#carouselServicos .carousel-indicators button {
+    background-color: #70418b;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    transition: background-color 0.6s ease;
+}
+
+#carouselServicos .carousel-indicators button:hover,
+#carouselServicos .carousel-indicators button.active {
+    background-color:  #70418b;
+}
+
+/* ========== SEÇÃO 4 - CONTATO ========== */
+
+.contato {
+    background-color: #eaf5ef;
+}
+
+.contato h1 {
+    color: #48a878;
+    font-size: clamp(32px, 5vw, 46px);
+    font-weight: bold;
+}
+
+.contato .subtitulo {
+    color: #555;
+    font-size: clamp(16px, 2vw, 18px);
+}
+
+.contato-card {
+    background-color: #48a878;
+    color: #fff;
+    padding: 30px 20px;
+    border-radius: 20px;
+    height: 100%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.6s ease, box-shadow 0.6s ease;
+}
+
+.contato-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+.contato-card i {
+    display: inline-block;
+    font-size: 45px;
+    transition: transform 0.6s ease;
+}
+
+.contato-card:hover i {
+    transform: scale(1.1);
+}
+
+.contato-card h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+.contato-card p {
+    font-size: 16px;
+    min-height: 48px;
+}
+
+.btn-contato {
+    display: inline-block;
+    background-color: #fcf5ea;
+    color: #48a878;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: background-color 0.6s ease, color 0.6s ease;
+}
+
+.btn-contato:hover {
+    background-color: #6c428d;
+    color: #fff;
+}
+
+/* ========== RODAPÉ ========== */
+
+.footer {
+    background-color: #70418b;
+    color: #fff;
+}
+
+.footer p {
+    margin: 0;
+}
+
+/* ========== TABLET (768px em diante) ========== */
+
+@media (min-width: 768px) {
+
+    .imagem-servico {
+        height: 340px;
     }
 
-    .texto-sobre {
-        text-align: center;
+    .conteudo-servico {
+        padding: 35px;
+        text-align: left;
+    }
+
+    /* Espaço dos lados para as setas não ficarem em cima do card */
+    .servico-card {
+        margin: 0 55px 55px;
+    }
+
+    #carouselServicos .carousel-control-prev,
+    #carouselServicos .carousel-control-next {
+        width: 45px;
+        height: 45px;
+        top: 42%;
+    }
+
+    #carouselServicos .carousel-control-prev { left: 0; }
+    #carouselServicos .carousel-control-next { right: 0; }
+}
+
+/* ========== COMPUTADOR (992px em diante) ========== */
+
+@media (min-width: 992px) {
+
+    .logo-navbar {
+        height: 120px;
+    }
+
+    .imagem-servico {
+        height: 380px;
+    }
+
+    .conteudo-servico {
+        padding: 40px;
+    }
+
+    .servico-card {
+        margin: 0 60px 55px;
     }
 }
+
+/* ========== CELULARES PEQUENOS (até 576px) ========== */
 
 @media (max-width: 576px) {
-    .texto-sobre h1 {
-        font-size: 40px;
+
+    .secao1,
+    .secao2 {
+        text-align: center;
     }
 
-    .texto-sobre p {
-        font-size: 17px;
+    .imagem-sobre {
+        max-width: 250px;
+    }
+
+    .imagem-servico {
+        height: 180px;
+    }
+
+    #carouselServicos .carousel-control-prev,
+    #carouselServicos .carousel-control-next {
+        top: 70px;
+        width: 34px;
+        height: 34px;
+    }
+
+    .contato-card h3 {
+        font-size: 22px;
     }
 }
 
+/* ========== ACESSIBILIDADE ========== */
+/* Quem prefere menos movimento no sistema não vê as animações */
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+
+    .surgir {
+        opacity: 1;
+        transform: none;
+    }
+}

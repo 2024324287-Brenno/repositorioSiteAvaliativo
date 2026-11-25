@@ -4,42 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dúvidas</title>
-    <link rel="stylesheet" type="text/css" href="../css/style2.css" >
+    <link rel="stylesheet" type="text/css" href="../css/style2.css">
 </head>
 <body class="A">
     <div>
         <img class="logo" src="../img/Logo.png" alt="Logo">
     </div>
-
     <div class="geral">
-        <form>
-        <label>Nome</label>
-            <input type="text" placeholder="Digite seu nome" ><br><br>
-            <label>E-mail</label>
-            <input type="email" placeholder="Digite seu e-mail"><br><br>
-             <label>Dúvida</label>
-            <textarea name="duvida" rows="7" placeholder="Escreva aqui sua dúvida..."></textarea>
-            
-            <br><br>
-            <label>Avalie nosso site</label>
-            <select>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-                <option>9</option>
-                <option>10</option>
+        <h1>Dúvidas</h1>
+        <form id="formulario">
+            <!-- Campo Nome -->
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" placeholder="Digite seu nome">
+            <span class="erro" id="erroNome"></span>
+            <!-- Campo Email -->
+            <label for="email">E-mail</label>
+            <input type="text" id="email" placeholder="Digite seu e-mail">
+            <span class="erro" id="erroEmail"></span>
+            <!-- Campo Dúvida -->
+            <label for="duvida">Dúvida</label>
+            <textarea id="duvida" rows="7" placeholder="Escreva aqui sua dúvida..."></textarea>
+            <span class="erro" id="erroDuvida"></span>
+            <!-- Avaliação -->
+            <label for="nota">Avalie nosso site</label>
+            <select id="nota">
+                <option value="">Selecione uma nota</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
             </select>
-            <br><br>
+            <span class="erro" id="erroNota"></span>
+            <p id="mensagemSucesso"></p>
+            <div class="botoes">
                 <button type="submit">Enviar</button>
-                <button type="reset">Limpar</button>
+                <button type="reset" id="limpar">Limpar</button>
                 <a class="voltar" href="inicial.html">Voltar</a>
+            </div>
         </form>
     </div>
-
+    <script src="../js/form.js"></script>
 </body>
 </html>
