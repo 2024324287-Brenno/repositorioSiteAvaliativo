@@ -8,15 +8,31 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    <div class="">
-        <nav>
-            <a href="#inicial">Início</a>
-            <a href="#sobre">Sobre mim</a>
-            <a href="#servicos">Serviços</a>
-            <a href="#contato">Contato</a>
-            <a href="formulario.html">Dúvidas</a>
-        </nav>
+<nav class="navbar navbar-expand-lg bg-white shadow-sm">
+    <div class="container">
+        <!-- Logo -->
+        <a class="navbar-brand" href="#inicial">
+            <img src="../img/Logo.png" alt="Juliana Miranda" class="logo-navbar">
+        </a>
+        <!-- Menu hamburguer -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Links da navegação -->
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto">
+                <a class="nav-link active" href="#inicial">Início</a>
+                <a class="nav-link" href="#sobre">Sobre mim</a>
+                <a class="nav-link" href="#servicos">Serviços</a>
+                <a class="nav-link" href="#contato">Contato</a>
+                <a class="nav-link" href="formulario.html">Dúvidas</a>
+            </ul>
+        </div>
     </div>
-<script type="text/javascript" src="../js/bootstrap.bundle.min.js"></script>
+</nav>
+
+<script src="../js/bootstrap.bundle.min.js"></script>
+
 </body>
+
 </html>
