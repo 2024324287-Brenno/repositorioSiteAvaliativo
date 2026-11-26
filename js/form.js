@@ -80,7 +80,7 @@ formulario.addEventListener("submit", function (evento) {
     }
 
 // Se tudo estiver certo, mostra a mensagem de sucesso e limpa o formulário
-    mensagemSucesso.textContent = "Dúvida enviada com sucesso! Obrigada, " + nomeDigitado + ".";
+    mensagemSucesso.textContent = "Dúvida enviada com sucesso! Obrigado(a), " + nomeDigitado + "!";
     formulario.reset();
 });
 
