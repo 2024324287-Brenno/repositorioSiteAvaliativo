@@ -3,31 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dúvidas</title>
+    <title>Dúvidas - Juliana Miranda</title>
     <link rel="stylesheet" type="text/css" href="../css/style2.css">
 </head>
-<body class="A">
-    <div>
-        <img class="logo" src="../img/Logo.png" alt="Logo">
-    </div>
-    <div class="geral">
+<body class="paginaForm">
+    <header>
+        <!-- Clicar na logo volta para a página inicial -->
+        <a href="inicial.html">
+            <img class="logo" src="../img/Logo.png" alt="Juliana Miranda - voltar ao início">
+        </a>
+    </header>
+    <main class="geral">
         <h1>Dúvidas</h1>
-        <form id="formulario">
+        <!-- novalidate: desliga a validação padrão do navegador, pois usamos a nossa no form.js -->
+        <form id="formulario" novalidate>
             <!-- Campo Nome -->
             <label for="nome">Nome</label>
-            <input type="text" id="nome" placeholder="Digite seu nome">
-            <span class="erro" id="erroNome"></span>
-            <!-- Campo Email -->
+            <input type="text" id="nome" name="nome" placeholder="Digite seu nome"
+                   autocomplete="name" maxlength="80" required>
+            <span class="erro" id="erroNome" aria-live="polite"></span>
+
+            <!-- Campo Email (type="email" mostra o teclado com @ no celular) -->
             <label for="email">E-mail</label>
-            <input type="text" id="email" placeholder="Digite seu e-mail">
-            <span class="erro" id="erroEmail"></span>
+            <input type="email" id="email" name="email" placeholder="Digite seu e-mail"
+                   autocomplete="email" maxlength="100" required>
+            <span class="erro" id="erroEmail" aria-live="polite"></span>
+
             <!-- Campo Dúvida -->
             <label for="duvida">Dúvida</label>
-            <textarea id="duvida" rows="7" placeholder="Escreva aqui sua dúvida..."></textarea>
-            <span class="erro" id="erroDuvida"></span>
+            <textarea id="duvida" name="duvida" rows="7" maxlength="1000"
+                      placeholder="Escreva aqui sua dúvida..." required></textarea>
+            <span class="erro" id="erroDuvida" aria-live="polite"></span>
+
             <!-- Avaliação -->
             <label for="nota">Avalie nosso site</label>
-            <select id="nota">
+            <select id="nota" name="nota" required>
                 <option value="">Selecione uma nota</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -40,15 +50,18 @@
                 <option value="9">9</option>
                 <option value="10">10</option>
             </select>
-            <span class="erro" id="erroNota"></span>
-            <p id="mensagemSucesso"></p>
+            <span class="erro" id="erroNota" aria-live="polite"></span>
+
+            <!-- role="status": leitores de tela anunciam a mensagem quando ela aparece -->
+            <p id="mensagemSucesso" role="status"></p>
+
             <div class="botoes">
                 <button type="submit">Enviar</button>
                 <button type="reset" id="limpar">Limpar</button>
                 <a class="voltar" href="inicial.html">Voltar</a>
             </div>
         </form>
-    </div>
+    </main>
     <script src="../js/form.js"></script>
 </body>
 </html>
