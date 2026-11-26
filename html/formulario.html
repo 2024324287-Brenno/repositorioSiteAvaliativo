@@ -12,24 +12,20 @@
         </div>
     <main class="geral">
         <h1>Dúvidas</h1>
-        <!-- novalidate: desliga a validação padrão do navegador, pois usamos a nossa no form.js -->
         <form id="formulario" novalidate>
             <!-- Campo Nome -->
             <label>Nome</label>
             <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
             <span class="erro" id="erroNome" aria-live="polite"></span>
-
-            <!-- Campo Email (type="email" mostra o teclado com @ no celular) -->
+            <!-- Campo Email -->
             <label>E-mail</label>
             <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
             <span class="erro" id="erroEmail" aria-live="polite"></span>
-
             <!-- Campo Dúvida -->
             <label>Dúvida</label>
             <textarea id="duvida" name="duvida" rows="7" maxlength="100"
                       placeholder="Escreva aqui sua dúvida..." required></textarea>
             <span class="erro" id="erroDuvida" aria-live="polite"></span>
-
             <!-- Avaliação -->
             <label>Avalie nosso site</label>
             <select id="nota" name="nota" required>
@@ -46,9 +42,7 @@
                 <option value="10">10</option>
             </select>
             <span class="erro" id="erroNota" aria-live="polite"></span>
-
             <p id="mensagemSucesso"></p>
-
             <div class="botoes">
                 <button type="submit">Enviar</button>
                 <button type="reset" id="limpar">Limpar</button>
