@@ -10,6 +10,7 @@
     <!-- Ícones do Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style2.css">
 </head>
 <body>
     <!-- Menu de navegação -->
@@ -31,7 +32,7 @@
                     <li class="nav-item"><a class="nav-link" href="#sobre">Sobre mim</a></li>
                     <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
-                    <li class="nav-item"><a class="nav-link" href="formulario.html">Dúvidas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#duvidas">Dúvidas</a></li>
                 </ul>
             </div>
         </div>
@@ -192,6 +193,48 @@
                 </div>
             </div>
         </section>
+
+    <main class="geral" id="duvidas">
+        <h1>Dúvidas</h1>
+        <form id="formulario" novalidate>
+            <!-- Campo Nome -->
+            <label>Nome</label>
+            <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+            <span class="erro" id="erroNome" aria-live="polite"></span>
+            <!-- Campo Email -->
+            <label>E-mail</label>
+            <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+            <span class="erro" id="erroEmail" aria-live="polite"></span>
+            <!-- Campo Dúvida -->
+            <label>Dúvida</label>
+            <textarea id="duvida" name="duvida" rows="7" maxlength="100"
+                      placeholder="Escreva aqui sua dúvida..." required></textarea>
+            <span class="erro" id="erroDuvida" aria-live="polite"></span>
+            <!-- Avaliação -->
+            <label>Avalie nosso site</label>
+            <select id="nota" name="nota" required>
+                <option value="">Selecione uma nota</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+            <span class="erro" id="erroNota" aria-live="polite"></span>
+            <p id="mensagemSucesso"></p>
+            <div class="botoes">
+                <button type="submit">Enviar</button>
+                <button type="reset" id="limpar">Limpar</button>
+                <a class="voltar" href="inicial.html">Voltar</a>
+            </div>
+        </form>
+    </main>
+
         <!-- Seção 4 - Contato -->
         <section id="contato" class="contato py-5">
             <div class="container text-center">
@@ -217,16 +260,6 @@
                             <a href="https://wa.me/999999999" target="_blank" rel="noopener noreferrer"
                                 class="btn-contato">
                                 Conversar pelo WhatsApp
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Formulário -->
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="contato-card">
-                            <i class="bi bi-question-circle" aria-hidden="true"></i>
-                            <h3>Dúvidas</h3>
-                            <a href="formulario.html" class="btn-contato">
-                                Acessar formulário
                             </a>
                         </div>
                     </div>
